@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Адаптивность на мобильных устройствах -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Короткое описание страницы для поисковиков -->
+  <meta name="description" content="Сайт-визитка v1reless — начинающего разработчика и AI-automation специалиста.">
+  <title>v1reless — визитка</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Шапка сайта -->
+  <header class="header">
+    <div class="container">
+      <!-- Лаконичный значок в цвет темы: терминальный промпт -->
+      <div class="avatar" aria-hidden="true">❯</div>
+      <h1 class="header__name">v1reless</h1>
+      <p class="header__subtitle">Начинающий разработчик и AI-automation специалист</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция «Обо мне» -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 class="section__title" id="about-title">Обо мне</h2>
+        <p class="section__text">
+          Привет! Я v1reless — начинаю путь в веб-разработке и мне нравится собирать
+          вещи своими руками: от простой разметки до автоматизаций, которые экономят время.
+          Особенно интересуюсь автоматизацией рутинных процессов и работой с AI-инструментами.
+          Верю, что хороший код — это несложный код.
+        </p>
+      </div>
+    </section>
+
+    <!-- Секция «Навыки» -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <h2 class="section__title" id="skills-title">Навыки</h2>
+        <ul class="skills">
+          <!-- Бэйджи навыков; data-тег подсказывает цвет градиента в CSS -->
+          <li class="skill" data-tag="dev">HTML</li>
+          <li class="skill" data-tag="dev">CSS</li>
+          <li class="skill" data-tag="dev">JavaScript</li>
+          <li class="skill" data-tag="tool">Git</li>
+          <li class="skill" data-tag="tool">GitHub</li>
+          <li class="skill" data-tag="tool">OpenCode</li>
+          <!-- n8n пока изучается — помечаем тегом learning -->
+          <li class="skill" data-tag="learning">n8n <span class="skill__badge">изучаю</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Секция «Проекты» -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section__title" id="projects-title">Проекты</h2>
+        <div class="projects">
+          <!-- Карточка-заглушка 1 -->
+          <article class="project-card">
+            <div class="project-card__icon" aria-hidden="true">◆</div>
+            <h3 class="project-card__title">Проект №1</h3>
+            <p class="project-card__text">
+              Здесь скоро появится описание первого проекта:
+              небольшая утилита или страница, собранная на чистом HTML, CSS и JS.
+            </p>
+          </article>
+          <!-- Карточка-заглушка 2 -->
+          <article class="project-card">
+            <div class="project-card__icon" aria-hidden="true">◇</div>
+            <h3 class="project-card__title">Проект №2</h3>
+            <p class="project-card__text">
+              А тут — второй проект: эксперимент с автоматизацией
+              или AI-помощником. Заглушка до первых рабочих результатов.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция «Контакты» -->
+    <section class="section" id="contacts" aria-labelledby="contacts-title">
+      <div class="container contacts">
+        <h2 class="section__title" id="contacts-title">Контакты</h2>
+        <p class="section__text">
+          Хочешь пообщаться или предложить совместный проект? Нажми кнопку —
+          мой юз в Telegram скопируется в буфер обмена, и можно писать сразу.
+        </p>
+        <!-- Кнопка копирует юз телеграма скриптом из script.js -->
+        <button class="contact-btn" id="contact-btn" type="button">Связаться →</button>
+        <!-- Лёгкое уведомление «скопировано» -->
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year">2026</span> v1reless. Сделано без фреймворков и лишних зависимостей.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

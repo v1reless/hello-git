@@ -1,0 +1,274 @@
+/* ============================================================
+   Основные переменные: чёрная тема, оттенки зелёного
+   ============================================================ */
+:root {
+  --bg: #0b0d0c;            /* почти чёрный фон страницы */
+  --bg-card: #121714;       /* фон карточек */
+  --bg-card-hover: #161d19; /* фон карточек при наведении */
+  --text: #e6ece8;          /* основной текст */
+  --text-muted: #9fada3;    /* второстепенный текст */
+  --accent: #4ec98a;        /* спокойный зелёный акцент */
+  --accent-2: #30a37d;      /* приглушённый зелёный для градиентов */
+  --border: #243029;        /* тёмно-зелёный цвет границ */
+  --radius: 14px;           /* скругление углов */
+}
+
+/* ============================================================
+   Базовые стили и сброс
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* плавная прокрутка по якорям */
+}
+
+body {
+  /* Системные шрифты, без внешних подключений */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   Шапка
+   ============================================================ */
+.header {
+  padding: 64px 0 40px;
+  text-align: center;
+  /* Небольшой зелёный градиент, чтобы шапка не сливалась с фоном */
+  background: radial-gradient(circle at 50% 0%, rgba(78, 201, 138, 0.10), transparent 60%);
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  font-size: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 8px 24px rgba(78, 201, 138, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.08) rotate(5deg); /* лёгкая анимация аватара */
+}
+
+.header__name {
+  font-size: clamp(2rem, 5vw, 2.8rem); /* плавный размер текста */
+  letter-spacing: 0.02em;
+}
+
+.header__subtitle {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* ============================================================
+   Общие стили секций
+   ============================================================ */
+.section {
+  padding: 36px 0;
+}
+
+.section__title {
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+  /* Акцентная полоска слева от заголовка */
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+.section__text {
+  color: var(--text-muted);
+  max-width: 640px;
+}
+
+/* ============================================================
+   Навыки: бэйджи
+   ============================================================ */
+.skills {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-card);
+  font-weight: 500;
+  cursor: default;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.skill:hover {
+  transform: translateY(-3px);
+  background-color: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+/* Мягкие градиенты для разных групп навыков */
+.skill[data-tag="dev"] {
+  background: linear-gradient(135deg, rgba(78, 201, 138, 0.16), rgba(78, 201, 138, 0.05));
+}
+
+.skill[data-tag="tool"] {
+  background: linear-gradient(135deg, rgba(48, 163, 125, 0.20), rgba(48, 163, 125, 0.05));
+}
+
+/* n8n — ещё изучается: пунктирная рамка и приглушённый цвет */
+.skill[data-tag="learning"] {
+  border-style: dashed;
+  color: var(--text-muted);
+  background: var(--bg-card);
+}
+
+.skill__badge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
+/* ============================================================
+   Проекты: карточки
+   ============================================================ */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* на десктопе две колонки */
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  background-color: var(--bg-card-hover);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.project-card__icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.project-card__title {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.project-card__text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Контакты и кнопка «Связаться»
+   ============================================================ */
+.contacts {
+  text-align: center;
+}
+
+.contacts .section__text {
+  margin: 0 auto 24px;
+}
+
+.contact-btn {
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 6px 18px rgba(78, 201, 138, 0.3);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(78, 201, 138, 0.4);
+}
+
+.contact-btn:active {
+  transform: translateY(0); /* обратная связь при нажатии */
+  opacity: 0.9;
+}
+
+/* Уведомление «юз скопирован» — скрыто по умолчанию */
+.toast {
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   Подвал
+   ============================================================ */
+.footer {
+  margin-top: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Адаптивность
+   ============================================================ */
+@media (max-width: 640px) {
+  /* На телефоне карточки проектов — одна колонка */
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding: 48px 0 32px;
+  }
+
+  .section {
+    padding: 28px 0;
+  }
+}
