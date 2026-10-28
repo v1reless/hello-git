@@ -56,27 +56,25 @@
     <!-- Секция «Проекты» -->
     <section class="section" id="projects" aria-labelledby="projects-title">
       <div class="container">
-        <h2 class="section__title" id="projects-title">Проекты</h2>
-        <div class="projects">
-          <!-- Карточка-заглушка 1 -->
-          <article class="project-card">
-            <div class="project-card__icon" aria-hidden="true">◆</div>
-            <h3 class="project-card__title">Проект №1</h3>
-            <p class="project-card__text">
-              Здесь скоро появится описание первого проекта:
-              небольшая утилита или страница, собранная на чистом HTML, CSS и JS.
-            </p>
-          </article>
-          <!-- Карточка-заглушка 2 -->
-          <article class="project-card">
-            <div class="project-card__icon" aria-hidden="true">◇</div>
-            <h3 class="project-card__title">Проект №2</h3>
-            <p class="project-card__text">
-              А тут — второй проект: эксперимент с автоматизацией
-              или AI-помощником. Заглушка до первых рабочих результатов.
-            </p>
-          </article>
+        <div class="projects__head">
+          <h2 class="section__title" id="projects-title">Проекты</h2>
+          <a class="projects__all" href="https://github.com/v1reless?tab=repositories" target="_blank" rel="noopener noreferrer">
+            Все на GitHub →
+          </a>
         </div>
+
+        <!-- Сюда script.js складывает карточки из GitHub API -->
+        <p class="projects__status" id="projects-status" role="status" hidden>
+          Загружаю проекты…
+        </p>
+
+        <div class="projects" id="projects-list" aria-labelledby="projects-title"></div>
+
+        <noscript>
+          <p class="projects__status projects__status--error">
+            Чтобы увидеть проекты, включите JavaScript.
+          </p>
+        </noscript>
       </div>
     </section>
 
